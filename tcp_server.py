@@ -9,7 +9,7 @@ from typing import Optional, List
 
 from fastapi import FastAPI, HTTPException, UploadFile, File
 import asyncpg
-import aioredis
+import redis.asyncio as aioredis
 from pydantic import BaseModel
 
 logging.basicConfig(level=logging.INFO)

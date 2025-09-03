@@ -1,5 +1,5 @@
 fastapi==0.115.0
 uvicorn[standard]==0.30.6
 asyncpg==0.29.0
-aioredis==2.0.1
+redis[asyncio]==4.5.5
 pydantic==2.8.2
