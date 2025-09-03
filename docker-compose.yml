@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: bus_db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: gpsdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+  redis:
+    image: redis:7
+    container_name: bus_redis
+    ports:
+      - "6379:6379"
+
+  api:
+    build: .
+    container_name: bus_api
+    depends_on:
+      - db
+      - redis
+    environment:
+      TCP_HOST: "0.0.0.0"
+      TCP_PORT: "5000"
+      POSTGRES_DSN: "postgresql://user:password@db:5432/gpsdb"
+      REDIS_DSN: "redis://redis:6379/0"
+      UVICORN_HOST: "0.0.0.0"
+      UVICORN_PORT: "8000"
+    ports:
+      - "8000:8000"
+      - "5000:5000"
+    command: [ "bash", "-lc", "uvicorn tcp_server:app --host ${UVICORN_HOST} --port ${UVICORN_PORT}" ]
+    volumes:
+      - ./:/app
+
+volumes:
+  db_data:
