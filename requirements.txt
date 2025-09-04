@@ -1,5 +1,18 @@
-fastapi==0.115.0
-uvicorn[standard]==0.30.6
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+
+# Database
+SQLAlchemy==2.0.30
 asyncpg==0.29.0
-redis[asyncio]==4.5.5
-pydantic==2.8.2
+alembic==1.13.1
+
+# Pydantic
+pydantic==1.10.15
+
+# Redis + Celery
+redis==5.0.4
+celery==5.3.6
+
+# Utils
+python-dotenv==1.0.1
+structlog==24.1.0
