@@ -18,8 +18,6 @@ import logging
 import json
 from datetime import datetime, timezone
 from typing import Optional, Dict, Any
-
-import aioredis
 from sqlalchemy.future import select
 
 from app.core.config import settings
