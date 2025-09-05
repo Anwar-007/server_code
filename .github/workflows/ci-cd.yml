@@ -28,8 +28,7 @@ jobs:
           ruff check .
 
       - name: Run tests
-        run: |
-          pytest -q
+        run: PYTHONPATH=. pytest -q
 
   deploy:
     needs: lint-and-test
