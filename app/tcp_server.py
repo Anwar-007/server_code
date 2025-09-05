@@ -11,7 +11,7 @@ Features:
 - Enqueues raw GPS payload into Redis list 'analytics:gps' for downstream ingestion
 - Optionally triggers Celery analytics tasks (analyze_gps_data, push_current_stop)
 """
-
+import redis.asyncio as aioredis
 import asyncio
 import socket
 import logging
