@@ -1,6 +1,5 @@
 import binascii
 import datetime
-import pytest
 
 from app.tcp_server import crc_itu, decode_timestamp
 
