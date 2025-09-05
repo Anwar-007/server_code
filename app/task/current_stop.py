@@ -1,6 +1,7 @@
 # app/tasks/current_stop.py
-
-import logging, json, asyncio
+import logging
+import json
+import asyncio
 import redis
 from datetime import datetime
 from sqlalchemy import select

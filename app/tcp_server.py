@@ -21,7 +21,6 @@ from typing import Optional, Dict, Any
 
 import aioredis
 from sqlalchemy.future import select
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import settings
 from app.database import async_session_maker

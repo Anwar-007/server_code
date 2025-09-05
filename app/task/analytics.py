@@ -4,7 +4,6 @@ import logging
 import asyncio
 from datetime import timedelta
 from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.celery_worker import celery_app
 from app.database import async_session
 from app.models import GPSData, RouteStops, StopData

@@ -8,8 +8,6 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from app.database import Base
-from app.models import BusUser, Routes, GPSData, StopData, RouteStops
-
 # Alembic Config object
 config = context.config
 
