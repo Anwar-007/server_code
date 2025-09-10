@@ -9,7 +9,7 @@ const server = net.createServer((client) => {
 
   const gt06 = new Gt06()
   client.on("data", (data) => {
-    console.log("recieved", data.toString("hex"))
+    //console.log("recieved", data.toString("hex"))
     try {
       gt06.parse(data)
     } catch (e) {
